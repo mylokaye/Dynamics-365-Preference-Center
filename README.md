@@ -1,1 +1,2 @@
-# Dynamics-365-Preference-Center
+# Dynamics 365 Customer Insights Preference Center Templates
+Dynamics 365 Customer Insights - Preference Center Templates
