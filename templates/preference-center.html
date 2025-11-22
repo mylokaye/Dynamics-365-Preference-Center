@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-   <!-- ================================
+    <!-- ================================
         This Preference Center was downloaded from github.com/mylokaye
         and is available without cost or need of attribution. 
         --
          Credit to Megan for the re-direct code used in this file. meganvwalker.com
          ================================ -->
-    
+
     <!-- ================================
          META TAGS & CONFIGURATION
          ================================ -->
@@ -16,30 +17,37 @@
     <title>Preference Center | [Company Name]</title>
     <!-- Referrer policy set to 'never' for enhanced privacy protection -->
     <meta name="referrer" content="never">
-    
+
     <!-- Theme Color for Browser Chrome (uses primary brand color) -->
     <meta name="theme-color" content="#2d5f8e">
     <!-- Apple Safari specific -->
     <meta name="apple-mobile-web-app-status-bar-style" content="#2d5f8e">
     <!-- Microsoft Edge/IE -->
     <meta name="msapplication-TileColor" content="#2d5f8e">
-    
+
     <!-- Dynamics 365 Customer Insights Required Meta Tags - DO NOT REMOVE -->
     <meta type="xrm/designer/setting" name="type" value="marketing-designer-content-editor-document">
     <meta type="xrm/designer/setting" name="layout-editable" value="marketing-designer-layout-editable">
     <meta type="xrm/designer/setting" name="layout-max-width" value="600px" datatype="text" label="Layout max width">
-    <meta type="xrm/designer/setting" name="font-family" value="Verdana, Arial, sans-serif" datatype="font" label="Font Family">
+    <meta type="xrm/designer/setting" name="font-family" value="Verdana, Arial, sans-serif" datatype="font"
+        label="Font Family">
     <meta type="xrm/designer/setting" name="body-text-size" value="16px" datatype="text" label="Body Font Size">
     <meta type="xrm/designer/setting" name="body-text-color" value="#000" datatype="color" label="Body Text Color">
     <meta type="xrm/designer/setting" name="outer-background" value="#FFFFF" datatype="color" label="Email Background">
 
     <!-- Favicon - Modern multi-format support -->
-
+    <!-- 
+        IMPORTANT: The following links point to external assets on GitHub. 
+        For production use, please upload these assets to your own Dynamics 365 library or CDN 
+        and update the href attributes below.
+    -->
+    <!--
     <link rel="icon" href="https://raw.githubusercontent.com/mylokaye/Custom-Preference-Center-Dynamics-365-Customer-Insights/refs/heads/main/Assets/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="https://raw.githubusercontent.com/mylokaye/Custom-Preference-Center-Dynamics-365-Customer-Insights/refs/heads/main/Assets/apple-touch-icon.png">
     <link rel="manifest" href="https://raw.githubusercontent.com/mylokaye/Custom-Preference-Center-Dynamics-365-Customer-Insights/refs/heads/main/Assets/manifest.webmanifest">
+    -->
 
-   <!-- ================================
+    <!-- ================================
          CUSTOM FONTS
          ================================
          Manrope: Used for all body text and UI elements
@@ -47,10 +55,10 @@
     -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Montserrat:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
-     
-
         /* ================================
            1. BRAND COLORS (CSS VARIABLES)
            ================================
@@ -58,50 +66,89 @@
         */
 
         :root {
-            --color-primary: #2d5f8e;                /* Brand color - headings, titles, nav links (WCAG AA compliant) */
-            --color-accent: #0f5cd3;                 /* Buttons, hovers, interactive elements */
-            --color-text-body: #1a1a1a;              /* Main body text (WCAG AAA compliant) */
-            --color-background: #fafafa;             /* Page/section backgrounds */
-            --color-text-footer-copyright: #ffffff;  /* Bottom copyright footer text */
-            --color-card-bg: #ffffff;                /* Card backgrounds */
-            --color-nav-bg: #ffffff;                 /* Navigation background */
-            --color-border: #e5e5e5;                 /* Borders */
-            --color-border-card: #e9ecef;            /* Card borders */
-            --color-text-dark: #1a1a1a;              /* Dark text variant */
-            --color-checkbox-border: #ddd;           /* Checkbox border */
-            --color-checkbox-hover-bg: #f0f7ff;      /* Checkbox hover background */
-            --color-footer-bg: #ecedef;              /* Footer background */
-            --color-footer-text: #3a3a3a;            /* Footer text */
-            --color-email-bg: #f0f7ff;               /* Email display background */
-            --color-shadow: rgba(0, 0, 0, 0.08);     /* Shadow color */
-            --color-shadow-hover: rgba(0, 0, 0, 0.12); /* Shadow hover color */
-            --color-disabled-bg: #f5f5f5;            /* Disabled checkbox background */
-            --color-disabled-border: #e0e0e0;        /* Disabled checkbox border */
-            --color-disabled-text: #999;             /* Disabled text */
+            --color-primary: #2d5f8e;
+            /* Brand color - headings, titles, nav links (WCAG AA compliant) */
+            --color-accent: #0f5cd3;
+            /* Buttons, hovers, interactive elements */
+            --color-text-body: #1a1a1a;
+            /* Main body text (WCAG AAA compliant) */
+            --color-background: #ffffff;
+            /* Page/section backgrounds */
+            --color-text-footer-copyright: #ffffff;
+            /* Bottom copyright footer text */
+            --color-card-bg: #ffffff;
+            /* Card backgrounds */
+            --color-nav-bg: #ffffff;
+            /* Navigation background */
+            --color-border: #e5e5e5;
+            /* Borders */
+            --color-border-card: #e9ecef;
+            /* Card borders */
+            --color-text-dark: #1a1a1a;
+            /* Dark text variant */
+            --color-checkbox-border: #ddd;
+            /* Checkbox border */
+            --color-checkbox-hover-bg: #f0f7ff;
+            /* Checkbox hover background */
+            --color-footer-bg: #ecedef;
+            /* Footer background */
+            --color-footer-text: #3a3a3a;
+            /* Footer text */
+            --color-email-bg: #f0f7ff;
+            /* Email display background */
+            --color-shadow: rgba(0, 0, 0, 0.08);
+            /* Shadow color */
+            --color-shadow-hover: rgba(0, 0, 0, 0.12);
+            /* Shadow hover color */
+            --color-disabled-bg: #f5f5f5;
+            /* Disabled checkbox background */
+            --color-disabled-border: #e0e0e0;
+            /* Disabled checkbox border */
+            --color-disabled-text: #999;
+            /* Disabled text */
         }
 
         /* Dark mode automatically activated based on system preferences */
         @media (prefers-color-scheme: dark) {
             :root {
-                --color-primary: #5b9fd9;            /* Lighter blue for better contrast */
-                --color-accent: #4a8ef5;             /* Brighter accent for dark bg */
-                --color-text-body: #e5e5e5;          /* Light text */
-                --color-background: #1a1a1a;         /* Dark background */
-                --color-card-bg: #2a2a2a;            /* Dark card background */
-                --color-nav-bg: #1f1f1f;             /* Dark nav background */
-                --color-border: #404040;             /* Dark borders */
-                --color-border-card: #404040;        /* Dark card borders */
-                --color-text-dark: #e5e5e5;          /* Light text in dark mode */
-                --color-checkbox-border: #555;       /* Darker checkbox border */
-                --color-checkbox-hover-bg: #1a3a5f;  /* Dark blue hover */
-                --color-footer-bg: #1f1f1f;          /* Dark footer */
-                --color-footer-text: #b0b0b0;        /* Lighter footer text */
-                --color-email-bg: #2d4a6e;           /* Dark email bg - lighter for better contrast */
-                --color-shadow: rgba(0, 0, 0, 0.3);  /* Stronger shadow for dark mode */
-                --color-shadow-hover: rgba(0, 0, 0, 0.5); /* Stronger hover shadow */
-                --color-disabled-bg: #333;           /* Dark disabled background */
-                --color-disabled-border: #555;       /* Dark disabled border */
-                --color-disabled-text: #666;         /* Dark disabled text */
+                --color-primary: #5b9fd9;
+                /* Lighter blue for better contrast */
+                --color-accent: #4a8ef5;
+                /* Brighter accent for dark bg */
+                --color-text-body: #e5e5e5;
+                /* Light text */
+                --color-background: #1a1a1a;
+                /* Dark background */
+                --color-card-bg: #2a2a2a;
+                /* Dark card background */
+                --color-nav-bg: #1f1f1f;
+                /* Dark nav background */
+                --color-border: #404040;
+                /* Dark borders */
+                --color-border-card: #404040;
+                /* Dark card borders */
+                --color-text-dark: #e5e5e5;
+                /* Light text in dark mode */
+                --color-checkbox-border: #555;
+                /* Darker checkbox border */
+                --color-checkbox-hover-bg: #1a3a5f;
+                /* Dark blue hover */
+                --color-footer-bg: #1f1f1f;
+                /* Dark footer */
+                --color-footer-text: #b0b0b0;
+                /* Lighter footer text */
+                --color-email-bg: #2d4a6e;
+                /* Dark email bg - lighter for better contrast */
+                --color-shadow: rgba(0, 0, 0, 0.3);
+                /* Stronger shadow for dark mode */
+                --color-shadow-hover: rgba(0, 0, 0, 0.5);
+                /* Stronger hover shadow */
+                --color-disabled-bg: #333;
+                /* Dark disabled background */
+                --color-disabled-border: #555;
+                /* Dark disabled border */
+                --color-disabled-text: #666;
+                /* Dark disabled text */
             }
         }
 
@@ -397,8 +444,14 @@
             background-color: var(--color-checkbox-hover-bg);
         }
 
-        .custom-checkbox input:checked ~ .checkmark {
+        .custom-checkbox input:checked~.checkmark {
             background-color: var(--color-accent);
+            border-color: var(--color-accent);
+        }
+
+        /* Accessibility: Visible focus state for keyboard navigation */
+        .custom-checkbox input:focus~.checkmark {
+            box-shadow: 0 0 0 3px rgba(15, 92, 211, 0.3);
             border-color: var(--color-accent);
         }
 
@@ -415,17 +468,17 @@
             transform: rotate(45deg);
         }
 
-        .custom-checkbox input:checked ~ .checkmark:after {
+        .custom-checkbox input:checked~.checkmark:after {
             display: block;
         }
 
-        .custom-checkbox input:disabled ~ .checkmark {
+        .custom-checkbox input:disabled~.checkmark {
             background-color: var(--color-disabled-bg);
             border-color: var(--color-disabled-border);
             cursor: not-allowed;
         }
 
-        .custom-checkbox input:disabled ~ .checkbox-label {
+        .custom-checkbox input:disabled~.checkbox-label {
             color: var(--color-disabled-text);
             cursor: not-allowed;
         }
@@ -785,7 +838,7 @@
         /* ================================
            FOCUS MANAGEMENT
            ================================ */
-        
+
         /* Remove default outline and add custom focus styles */
         *:focus {
             outline: none;
@@ -802,7 +855,7 @@
         }
 
         /* Special focus style for custom checkboxes */
-        .custom-checkbox input[type="checkbox"]:focus ~ .checkmark {
+        .custom-checkbox input[type="checkbox"]:focus~.checkmark {
             outline: 3px solid var(--color-accent);
             outline-offset: 2px;
             box-shadow: 0 0 0 3px rgba(15, 92, 211, 0.1);
@@ -843,6 +896,7 @@
            MOTION PREFERENCES
            ================================ */
         @media (prefers-reduced-motion: reduce) {
+
             *,
             *::before,
             *::after {
@@ -889,25 +943,30 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
     </style>
     <!-- ================================
          Re-direct script, remove if not needed.
          ================================ -->
-      <script>
-        document.addEventListener("DOMContentLoaded", function() {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
             var form = document.querySelector("form");
-            form.addEventListener("submit", function() {
+            form.addEventListener("submit", function () {
                 // Replace the URL with your desired redirect URL
-                setTimeout(function() {
+                setTimeout(function () {
                     window.location.href = "https://google.com";
                 }, 0);
             });
         });
     </script>
-   <!-- ================================
+    <!-- ================================
          Re-direct script, remove if not needed.
          ================================ -->
 
@@ -922,85 +981,86 @@
          Dependencies: Dynamics 365 main.dist.js
          ================================ -->
     <script>
-    /**
-     * CONFIGURATION
-     * Update BRAND_NAME to customize the company name throughout the site
-     */
-    const BRAND_NAME = "Truestory";
+        /**
+         * CONFIGURATION
+         * Update BRAND_NAME to customize the company name throughout the site
+         */
+        const BRAND_NAME = "Truestory";
     </script>
-    
+
     <!-- Dynamics 365 Required Script - DO NOT REMOVE -->
     <script src="/consentcontent/preferencecenter/js/main.dist.js"></script>
-    
+
     <script>
-    /**
-     * DOM MANIPULATION
-     * All DOM manipulation happens after page load to ensure elements exist
-     */
-    document.addEventListener("DOMContentLoaded", function() {
-        
         /**
-         * Brand Name Replacement
-         * Replaces all [Company Name] placeholders with the configured BRAND_NAME
-         * Searches through: paragraphs, spans, headings, buttons, labels, and footer elements
+         * DOM MANIPULATION
+         * All DOM manipulation happens after page load to ensure elements exist
          */
-        const elements = document.querySelectorAll('p, span, h1, h2, title, button, label, .footer-text, .copyright');
-        elements.forEach(el => {
-            if (el.textContent.includes('[Company Name]')) {
-                el.textContent = el.textContent.replace(/\[Company Name\]/g, BRAND_NAME);
+        document.addEventListener("DOMContentLoaded", function () {
+
+            /**
+             * Brand Name Replacement
+             * Replaces all [Company Name] placeholders with the configured BRAND_NAME
+             * Searches through: paragraphs, spans, headings, buttons, labels, and footer elements
+             */
+            const elements = document.querySelectorAll('p, span, h1, h2, title, button, label, .footer-text, .copyright');
+            elements.forEach(el => {
+                if (el.textContent.includes('[Company Name]')) {
+                    el.textContent = el.textContent.replace(/\[Company Name\]/g, BRAND_NAME);
+                }
+            });
+
+            // Update page title with brand name
+            if (document.title.includes('[Company Name]')) {
+                document.title = document.title.replace(/\[Company Name\]/g, BRAND_NAME);
+            }
+
+            /**
+             * Auto-Update Copyright Year
+             * Dynamically updates the copyright year to current year
+             * Format: © [BRAND_NAME] [CURRENT_YEAR]
+             */
+            const currentYear = new Date().getFullYear();
+            const copyrightElement = document.querySelector('.copyright');
+            if (copyrightElement) {
+                copyrightElement.textContent = `© ${BRAND_NAME} ${currentYear}`;
+            }
+
+            /**
+             * Mobile Menu Toggle
+             * Handles hamburger menu click events on mobile devices
+             * Toggles menu visibility and updates ARIA attributes for accessibility
+             */
+            const mobileToggle = document.querySelector('.mobile-menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function () {
+                    // Check current state
+                    const isExpanded = navLinks.classList.contains('active');
+
+                    // Toggle menu visibility
+                    navLinks.classList.toggle('active');
+
+                    // Update button icon (hamburger ☰ to close ✕)
+                    this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+
+                    // Update ARIA attribute for screen readers
+                    this.setAttribute('aria-expanded', !isExpanded);
+                });
             }
         });
-        
-        // Update page title with brand name
-        if (document.title.includes('[Company Name]')) {
-            document.title = document.title.replace(/\[Company Name\]/g, BRAND_NAME);
-        }
-
-        /**
-         * Auto-Update Copyright Year
-         * Dynamically updates the copyright year to current year
-         * Format: © [BRAND_NAME] [CURRENT_YEAR]
-         */
-        const currentYear = new Date().getFullYear();
-        const copyrightElement = document.querySelector('.copyright');
-        if (copyrightElement) {
-            copyrightElement.textContent = `© ${BRAND_NAME} ${currentYear}`;
-        }
-
-        /**
-         * Mobile Menu Toggle
-         * Handles hamburger menu click events on mobile devices
-         * Toggles menu visibility and updates ARIA attributes for accessibility
-         */
-        const mobileToggle = document.querySelector('.mobile-menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', function() {
-                // Check current state
-                const isExpanded = navLinks.classList.contains('active');
-                
-                // Toggle menu visibility
-                navLinks.classList.toggle('active');
-                
-                // Update button icon (hamburger ☰ to close ✕)
-                this.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
-                
-                // Update ARIA attribute for screen readers
-                this.setAttribute('aria-expanded', !isExpanded);
-            });
-        }
-    });
     </script>
 
-        
+
     <!-- ================================
          NAVIGATION BAR
          ================================ -->
     <nav role="navigation" aria-label="Main navigation" class="nav-bar">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <img src="https://github.com/mylokaye/Custom-Preference-Center-Dynamics-365-Customer-Insights/blob/main/Assets/truestory.png?raw=true" alt="[Company Name] Logo">
+                <img src="https://github.com/mylokaye/Custom-Preference-Center-Dynamics-365-Customer-Insights/blob/main/Assets/truestory.png?raw=true"
+                    alt="[Company Name] Logo">
             </a>
             <button class="mobile-menu-toggle" aria-expanded="false" aria-label="Toggle navigation menu">☰</button>
             <ul class="nav-links">
@@ -1011,36 +1071,40 @@
         </div>
     </nav>
 
-        
+
     <!-- ================================
          MAIN FORM CONTAINER
          ================================ -->
     <main id="main-content" role="main">
-    <form>
-        <div class="main-container">
-            
-            <!-- Header Section with Title (Logo Removed) -->
-            <header class="header-section">
-               <div data-editorblocktype="Text"><h1 class="main-title">Preference Center</h1></div>
-                <div class="header-divider"></div>
-            </header>
+        <form>
+            <div class="main-container">
 
-            <!-- ================================
+                <!-- Header Section with Title (Logo Removed) -->
+                <header class="header-section">
+                    <div data-editorblocktype="Text">
+                        <h1 class="main-title">Preference Center</h1>
+                    </div>
+                    <div class="header-divider"></div>
+                </header>
+
+                <!-- ================================
                  INTRODUCTION SECTION
                  ================================
                  Three paragraphs explaining company and privacy
                  To edit: Update paragraph text content
             -->
-            <section class="intro-section" aria-label="Introduction">
-                <div data-editorblocktype="Text">
-                <p>At [Company Name], your privacy and personal information matter to us.</p>
-                <p>Privacy begins with giving you control over your data, along with the tools and information you need to make informed choices you can feel confident about. Through our Privacy Center, we invite you to customize the emails you receive.</p>
+                <section class="intro-section" aria-label="Introduction">
+                    <div data-editorblocktype="Text">
+                        <p>At [Company Name], your privacy and personal information matter to us.</p>
+                        <p>Privacy begins with giving you control over your data, along with the tools and information
+                            you need to make informed choices you can feel confident about. Through our Privacy Center,
+                            we invite you to customize the emails you receive.</p>
+                    </div>
+                </section>
+
             </div>
-            </section>
 
-        </div>
-
-    <!-- ================================
+            <!-- ================================
          PURPOSE CARDS SECTION
          ================================
          IMPORTANT - Checkbox Data Attributes:
@@ -1052,105 +1116,146 @@
          
          DO NOT modify these data attributes unless updating in Dynamics 365 first
     -->
-         
-    <section class="purposes-container" aria-label="Email preferences">
+
+            <section class="purposes-container" aria-label="Email preferences">
                 <div class="purposes-grid">
-                    
+
                     <!-- Purpose 1 -->
                     <div class="purpose-card">
                         <h2 class="purpose-logo-text">Marketing Purpose</h2>
                         <div data-container="true">
-                        <div class="checkbox-group">
-                            <!-- Topic 1 -->
-                            <label class="custom-checkbox preferenceCenterCheckbox" data-editorblocktype="Topic" data-purposeid="8688d48f-a030-f011-8c4e-000d3a3848f0" data-purposename="[Company Name]" data-topicid="05d5c7b3-a030-f011-8c4e-000d3a3848f0" data-topicname="Products & Innovations" data-optinwhenchecked="true">
-                                <input type="checkbox" id="topicCheckbox-1748423507229" name="msdynmkt_topicid;optInWhenChecked" value="05d5c7b3-a030-f011-8c4e-000d3a3848f0;true">
-                                <span class="checkmark"></span>
-                                <span class="checkbox-label">Products & Innovations</span>
-                            </label>
+                            <div class="checkbox-group">
+                                <!-- Topic 1 -->
+                                <label class="custom-checkbox preferenceCenterCheckbox" data-editorblocktype="Topic"
+                                    data-purposeid="8688d48f-a030-f011-8c4e-000d3a3848f0"
+                                    data-purposename="[Company Name]"
+                                    data-topicid="05d5c7b3-a030-f011-8c4e-000d3a3848f0"
+                                    data-topicname="Products & Innovations" data-optinwhenchecked="true">
+                                    <input type="checkbox" id="topicCheckbox-1748423507229"
+                                        name="msdynmkt_topicid;optInWhenChecked"
+                                        value="05d5c7b3-a030-f011-8c4e-000d3a3848f0;true">
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-label">Products & Innovations</span>
+                                </label>
 
-                            <!-- Topic 2 -->
-                            <label class="custom-checkbox preferenceCenterCheckbox" data-editorblocktype="Topic" data-purposeid="8688d48f-a030-f011-8c4e-000d3a3848f0" data-purposename="[Company Name]" data-topicid="8bececbf-a030-f011-8c4e-000d3a3848f0" data-topicname="Events & Webinars" data-optinwhenchecked="true">
-                                <input type="checkbox" id="topicCheckbox-1748423548194" name="msdynmkt_topicid;optInWhenChecked" value="8bececbf-a030-f011-8c4e-000d3a3848f0;true">
-                                <span class="checkmark"></span>
-                                <span class="checkbox-label">Events & Webinars</span>
-                            </label>
+                                <!-- Topic 2 -->
+                                <label class="custom-checkbox preferenceCenterCheckbox" data-editorblocktype="Topic"
+                                    data-purposeid="8688d48f-a030-f011-8c4e-000d3a3848f0"
+                                    data-purposename="[Company Name]"
+                                    data-topicid="8bececbf-a030-f011-8c4e-000d3a3848f0"
+                                    data-topicname="Events & Webinars" data-optinwhenchecked="true">
+                                    <input type="checkbox" id="topicCheckbox-1748423548194"
+                                        name="msdynmkt_topicid;optInWhenChecked"
+                                        value="8bececbf-a030-f011-8c4e-000d3a3848f0;true">
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-label">Events & Webinars</span>
+                                </label>
 
-                            <!-- Topic 3 -->
-                            <label class="custom-checkbox preferenceCenterCheckbox" data-editorblocktype="Topic" data-purposeid="8688d48f-a030-f011-8c4e-000d3a3848f0" data-purposename="[Company Name]" data-topicid="e96df03f-113b-f011-b4cc-6045bda0024d" data-topicname="Surveys & Focus Groups" data-optinwhenchecked="true">
-                                <input type="checkbox" id="topicCheckbox-1748423626195" name="msdynmkt_topicid;optInWhenChecked" value="e96df03f-113b-f011-b4cc-6045bda0024d;true">
-                                <span class="checkmark"></span>
-                                <span class="checkbox-label">Surveys & Focus Groups</span>
-                            </label>
+                                <!-- Topic 3 -->
+                                <label class="custom-checkbox preferenceCenterCheckbox" data-editorblocktype="Topic"
+                                    data-purposeid="8688d48f-a030-f011-8c4e-000d3a3848f0"
+                                    data-purposename="[Company Name]"
+                                    data-topicid="e96df03f-113b-f011-b4cc-6045bda0024d"
+                                    data-topicname="Surveys & Focus Groups" data-optinwhenchecked="true">
+                                    <input type="checkbox" id="topicCheckbox-1748423626195"
+                                        name="msdynmkt_topicid;optInWhenChecked"
+                                        value="e96df03f-113b-f011-b4cc-6045bda0024d;true">
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-label">Surveys & Focus Groups</span>
+                                </label>
 
-                            <!-- Unsubscribe Option -->
-                            <label class="custom-checkbox preferenceCenterCheckbox" data-editorblocktype="Purpose" data-purposeid="8688d48f-a030-f011-8c4e-000d3a3848f0" data-purposename="[Company Name]" data-topicid="undefined" data-topicname="undefined" data-optinwhenchecked="false">
-                                <input type="checkbox" id="purposeCheckbox-1748939342598" name="msdynmkt_purposeid;optInWhenChecked" value="8688d48f-a030-f011-8c4e-000d3a3848f0;false">
-                                <span class="checkmark"></span>
-                                <span class="checkbox-label">Unsubscribe</span>
-                            </label>
+                                <!-- Unsubscribe Option -->
+                                <label class="custom-checkbox preferenceCenterCheckbox" data-editorblocktype="Purpose"
+                                    data-purposeid="8688d48f-a030-f011-8c4e-000d3a3848f0"
+                                    data-purposename="[Company Name]" data-topicid="undefined"
+                                    data-topicname="undefined" data-optinwhenchecked="false">
+                                    <input type="checkbox" id="purposeCheckbox-1748939342598"
+                                        name="msdynmkt_purposeid;optInWhenChecked"
+                                        value="8688d48f-a030-f011-8c4e-000d3a3848f0;false">
+                                    <span class="checkmark"></span>
+                                    <span class="checkbox-label">Unsubscribe</span>
+                                </label>
                             </div>
                         </div>
                     </div>
 
-                  
 
-            
 
-                 
+
+
+
 
                 </div>
             </section>
 
-        <div class="main-container">
-            <!-- ================================
+            <div class="main-container">
+                <!-- ================================
                  EMAIL SECTION
                  ================================
                  {{Contact.EMailAddress1}} is replaced by Dynamics 365
             -->
-            <section class="email-section" aria-label="Email address and preferences">
-                <div data-editorblocktype="Text"><h2 class="email-title">Communication preference</h2></div>
-                
-                <div class="preferenceCenterBlock" data-editorblocktype="ContactOptIn" data-channels="Email">
-                    <label class="contactOptInLabel" id="contactOptInDropdown-label" for="contactOptInDropdown" style="display:none;"></label>
-                    <div class="email-display contactPoint" data-customchannelname="" name="channels" value="Email">
-                        <span value='{{Contact.EMailAddress1}}' data-channeltype='Email'>{{Contact.EMailAddress1}}</span>
+                <section class="email-section" aria-label="Email address and preferences">
+                    <div data-editorblocktype="Text">
+                        <h2 class="email-title">Communication preference</h2>
                     </div>
-                    <select id="contactOptInDropdown" class="contactPoint" style="display: none;" data-customchannelname=""></select>
-                </div>
 
-             <div data-editorblocktype="Text"><p class="email-notice">You may unsubscribe from marketing emails on this page, however, we will still send transactional emails (account updates, transactions, regulatory notices) as required by law.</p></div>
+                    <div class="preferenceCenterBlock" data-editorblocktype="ContactOptIn" data-channels="Email">
+                        <label class="contactOptInLabel" id="contactOptInDropdown-label" for="contactOptInDropdown"
+                            style="display:none;"></label>
+                        <div class="email-display contactPoint" data-customchannelname="" name="channels" value="Email">
+                            <span value='{{Contact.EMailAddress1}}'
+                                data-channeltype='Email'>{{Contact.EMailAddress1}}</span>
+                        </div>
+                        <select id="contactOptInDropdown" class="contactPoint" style="display: none;"
+                            data-customchannelname=""></select>
+                    </div>
 
-                <div class="submit-container" data-editorblocktype="SubmitButton">
-                    <button class="submit-button" type="submit" aria-label="Update preferences" onclick="track_msdynmkt_no_privacy_center_refresh_142612405()">
-                        Update Preferences
-                    </button>
-                </div>
-            </section>
+                    <div data-editorblocktype="Text">
+                        <p class="email-notice">You may unsubscribe from marketing emails on this page, however, we will
+                            still send transactional emails (account updates, transactions, regulatory notices) as
+                            required by law.</p>
+                    </div>
 
-        </div>
-    </form>
+                    <div class="submit-container" data-editorblocktype="SubmitButton">
+                        <button class="submit-button" type="submit" aria-label="Update preferences"
+                            onclick="track_msdynmkt_no_privacy_center_refresh_142612405()">
+                            Update Preferences
+                        </button>
+                    </div>
+                </section>
+
+            </div>
+        </form>
     </main>
 
     <!-- ================================
          FOOTER
          ================================ -->
     <footer role="contentinfo">
-  <!-- Main Footer: Legal text and data controller information -->  
-    <div class="footer-section">
-                <div class="footer-content">
-                    <p class="footer-text">
-[Company Name] is the data controller responsible for processing your personal data in accordance with Regulation (EU) 2016/679 (General Data Protection Regulation). Your consent to receive marketing communications is processed under Article 6(1)(a) GDPR. You have the right to withdraw your consent at any time by updating your preferences through this Privacy Center or by clicking the unsubscribe link in any email we send. You also have rights under Articles 15-22 GDPR, including the right to access, rectify, erase, restrict processing, data portability, and to object to processing of your personal data. For more information about how we process your data, please see our Privacy Policy. To exercise your rights or for data protection inquiries, please contact our Data Protection Officer by using the Contact link on this page.</p>
-        <!-- US CAN-SPAM Footer [Company Name] sends marketing communications in compliance with the CAN-SPAM Act of 2003 (15 U.S.C. § 7704). This preference center allows you to manage which types of commercial email messages you wish to receive from us. You may unsubscribe from marketing emails at any time by updating your preferences here or by clicking the unsubscribe link included in every marketing email we send. Your email preferences will be processed within 10 business days as required by law. For questions about our email practices, please review our Privacy Policy or contact us  using the links on this page.      -->  
-</div>
+        <!-- Main Footer: Legal text and data controller information -->
+        <div class="footer-section">
+            <div class="footer-content">
+                <p class="footer-text">
+                    [Company Name] is the data controller responsible for processing your personal data in accordance
+                    with Regulation (EU) 2016/679 (General Data Protection Regulation). Your consent to receive
+                    marketing communications is processed under Article 6(1)(a) GDPR. You have the right to withdraw
+                    your consent at any time by updating your preferences through this Privacy Center or by clicking the
+                    unsubscribe link in any email we send. You also have rights under Articles 15-22 GDPR, including the
+                    right to access, rectify, erase, restrict processing, data portability, and to object to processing
+                    of your personal data. For more information about how we process your data, please see our Privacy
+                    Policy. To exercise your rights or for data protection inquiries, please contact our Data Protection
+                    Officer by using the Contact link on this page.</p>
+                <!-- US CAN-SPAM Footer [Company Name] sends marketing communications in compliance with the CAN-SPAM Act of 2003 (15 U.S.C. § 7704). This preference center allows you to manage which types of commercial email messages you wish to receive from us. You may unsubscribe from marketing emails at any time by updating your preferences here or by clicking the unsubscribe link included in every marketing email we send. Your email preferences will be processed within 10 business days as required by law. For questions about our email practices, please review our Privacy Policy or contact us  using the links on this page.      -->
+            </div>
         </div>
 
         <!-- Bottom Footer -->
         <div class="bottom-footer">
-                <div class="bottom-footer-content">
-                    <span class="copyright">© [Company Name] [Year]</span>
-                    <span class="last-updated">Last updated: Oct-12-2025. V5</span>
-                </div>
+            <div class="bottom-footer-content">
+                <span class="copyright">© [Company Name] [Year]</span>
+                <span class="last-updated">Last updated: Oct-12-2025. V5</span>
             </div>
+        </div>
     </footer>
 
 
@@ -1163,4 +1268,5 @@
     </div>
 
 </body>
+
 </html>
