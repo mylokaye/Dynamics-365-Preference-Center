@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Truestory Preference Center</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #fff;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #1a3a3a;
+        }
+
+        .logo img {
+            height: 30px;
+        }
+
+        .visit-btn {
+            background: #1a3a3a;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px;
+            gap: 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-content h1 {
+            font-size: 2.5rem;
+            color: #1a3a3a;
+            margin-bottom: 20px;
+            font-weight: 400;
+            font-style: italic;
+        }
+
+        .hero-content p {
+            color: #666;
+            max-width: 400px;
+        }
+
+        .hero-image {
+            flex: 1;
+            max-width: 450px;
+        }
+
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        /* Preferences Section */
+        .preferences-section {
+            background: #f5f5f5;
+            padding: 40px;
+            margin: 0 40px;
+            border-radius: 10px;
+        }
+
+        .preferences-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 30px;
+        }
+
+        .preferences-header h2 {
+            font-size: 2rem;
+            color: #1a3a3a;
+            font-weight: 400;
+            font-style: italic;
+            max-width: 300px;
+        }
+
+        .preferences-header p {
+            color: #666;
+            max-width: 350px;
+            font-size: 0.9rem;
+        }
+
+        /* Marketing Purpose Box */
+        .marketing-purpose {
+            background: #fff;
+            border-radius: 10px;
+            padding: 30px;
+            max-width: 450px;
+            margin: 0 auto 20px;
+        }
+
+        .marketing-purpose h3 {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: #1a3a3a;
+        }
+
+        .preference-option {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            gap: 12px;
+        }
+
+        .preference-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+            accent-color: #1a3a3a;
+            flex-shrink: 0;
+        }
+
+        .preference-content {
+            flex: 1;
+        }
+
+        .preference-content label {
+            display: block;
+            cursor: pointer;
+            color: #1a3a3a;
+            font-weight: 500;
+        }
+
+        .preference-content .description {
+            color: #666;
+            font-size: 0.85rem;
+            margin-top: 4px;
+            line-height: 1.4;
+        }
+
+        .preference-option.unsubscribe {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .preference-option.unsubscribe label {
+            font-weight: 600;
+        }
+
+        /* Email Input */
+        .email-input {
+            background: #e8e8e8;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 25px;
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto 15px;
+            display: block;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        /* Update Button */
+        .update-btn {
+            background: #1a3a3a;
+            color: #fff;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .update-btn:hover {
+            background: #2a4a4a;
+        }
+
+        /* Trust Section */
+        .trust-section {
+            background: #1a3a3a;
+            color: #fff;
+            padding: 60px 40px;
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .trust-section h2 {
+            font-size: 2rem;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 20px;
+        }
+
+        .trust-section > p {
+            max-width: 500px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+        }
+
+        .trust-cards {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .trust-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 280px;
+            text-align: left;
+        }
+
+        .trust-card img {
+            height: 40px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .trust-card p {
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #f5f5f5;
+            padding: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h4 {
+            color: #1a3a3a;
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #666;
+            font-size: 0.9rem;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .footer-section a:hover {
+            color: #1a3a3a;
+        }
+
+        .footer-bottom {
+            color: #999;
+            font-size: 0.8rem;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+
+            .preferences-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .trust-cards {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/Trustory logo.png" alt="Truestory">
+            Truestory
+        </div>
+        <a href="#" class="visit-btn">Visit main website ></a>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your data, your choices</h1>
+            <p>Privacy begins with giving you control over your data, along with the tools and information you need to make informed choices you can feel confident about.</p>
+        </div>
+        <div class="hero-image">
+            <img src="assets/header.jpg" alt="Person using laptop">
+        </div>
+    </section>
+
+    <section class="preferences-section">
+        <div class="preferences-header">
+            <h2>Customize the emails you receive from us</h2>
+            <p>If you're a customer you may still receive transactional emails, such as order notifications, which are required for legal and regulatory requirements.</p>
+        </div>
+
+        <div class="marketing-purpose">
+            <h3>Marketing purpose</h3>
+
+            <div class="preference-option">
+                <input type="checkbox" id="products" name="products">
+                <div class="preference-content">
+                    <label for="products">New Products & Services</label>
+                    <p class="description">Be the first to know about our latest features and product launches.</p>
+                </div>
+            </div>
+
+            <div class="preference-option">
+                <input type="checkbox" id="events" name="events">
+                <div class="preference-content">
+                    <label for="events">Events & Webinars</label>
+                    <p class="description">Invitations to community meetups, tech talks, and online workshops.</p>
+                </div>
+            </div>
+
+            <div class="preference-option">
+                <input type="checkbox" id="offers" name="offers">
+                <div class="preference-content">
+                    <label for="offers">Special Offers</label>
+                    <p class="description">Exclusive discounts and promotions for our loyal community.</p>
+                </div>
+            </div>
+
+            <div class="preference-option unsubscribe">
+                <input type="checkbox" id="unsubscribe" name="unsubscribe">
+                <div class="preference-content">
+                    <label for="unsubscribe">Unsubscribe from all</label>
+                </div>
+            </div>
+        </div>
+
+        <input type="email" class="email-input" value="test@test.com" placeholder="Enter your email">
+        <button class="update-btn">Update preferences ></button>
+    </section>
+
+    <section class="trust-section">
+        <h2>Earning your trust is our priority</h2>
+        <p>Privacy. Security. Availability. Ethics. Whatever aspect you need to understand about our platform, you can find all the latest information here.</p>
+
+        <div class="trust-cards">
+            <div class="trust-card">
+                <img src="assets/lock.icloud.png" alt="Security">
+                <p>Security is embedded throughout our business – from employee training and third-party onboarding to our products and services.</p>
+            </div>
+            <div class="trust-card">
+                <img src="assets/person.3.png" alt="Ethics">
+                <p>We understand our collective responsibility to ensure our company and our actions are ethical, legal and promote our values.</p>
+            </div>
+            <div class="trust-card">
+                <img src="assets/checkmark.shield.png" alt="Compliance">
+                <p>The security of our infrastructure and data must be demonstrated consistently to maintain customer trust and regulatory compliance.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Truestory</h4>
+                <p>Truestory are specialists in data privacy.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Documents</h4>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Website Terms & Conditions</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contacts</h4>
+                <a href="#">Send us a message</a>
+                <a href="#">Give feedback</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; Truestory 2025, All rights reserved. Registered office: 165 Broadway, New York City, NY 10006.
+        </div>
+    </footer>
+
+    <script>
+        // Handle unsubscribe from all checkbox
+        const unsubscribeCheckbox = document.getElementById('unsubscribe');
+        const preferenceCheckboxes = document.querySelectorAll('input[type="checkbox"]:not(#unsubscribe)');
+
+        unsubscribeCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                preferenceCheckboxes.forEach(cb => cb.checked = false);
+            }
+        });
+
+        preferenceCheckboxes.forEach(cb => {
+            cb.addEventListener('change', function() {
+                if (this.checked) {
+                    unsubscribeCheckbox.checked = false;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
