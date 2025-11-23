@@ -1,5 +1,7 @@
 # Truestory Preference Center
 
+**[Live Preview](https://mylokaye.info/Dynamics-365-Preference-Center/)**
+
 A modern, responsive email preference center built for Dynamics 365 Marketing integration.
 
 ## Technologies
