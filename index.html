@@ -1,441 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Truestory Preference Center</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            color: #1a1a1a;
-            line-height: 1.6;
-        }
-
-        /* Header */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            background: #fff;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: #1a3a3a;
-        }
-
-        .logo img {
-            height: 30px;
-        }
-
-        .visit-btn {
-            background: #1a3a3a;
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 40px;
-            gap: 40px;
-        }
-
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 2.5rem;
-            color: #1a3a3a;
-            margin-bottom: 20px;
-            font-weight: 400;
-            font-style: italic;
-        }
-
-        .hero-content p {
-            color: #666;
-            max-width: 400px;
-        }
-
-        .hero-image {
-            flex: 1;
-            max-width: 450px;
-        }
-
-        .hero-image img {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        /* Preferences Section */
-        .preferences-section {
-            background: #f5f5f5;
-            padding: 40px;
-            margin: 0 40px;
-            border-radius: 10px;
-        }
-
-        .preferences-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 30px;
-        }
-
-        .preferences-header h2 {
-            font-size: 2rem;
-            color: #1a3a3a;
-            font-weight: 400;
-            font-style: italic;
-            max-width: 300px;
-        }
-
-        .preferences-header p {
-            color: #666;
-            max-width: 350px;
-            font-size: 0.9rem;
-        }
-
-        /* Marketing Purpose Box */
-        .marketing-purpose {
-            background: #fff;
-            border-radius: 10px;
-            padding: 30px;
-            max-width: 450px;
-            margin: 0 auto 20px;
-        }
-
-        .marketing-purpose h3 {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: #1a3a3a;
-        }
-
-        .preference-option {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 20px;
-            gap: 12px;
-        }
-
-        .preference-option input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            margin-top: 2px;
-            accent-color: #1a3a3a;
-            flex-shrink: 0;
-        }
-
-        .preference-content {
-            flex: 1;
-        }
-
-        .preference-content label {
-            display: block;
-            cursor: pointer;
-            color: #1a3a3a;
-            font-weight: 500;
-        }
-
-        .preference-content .description {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 4px;
-            line-height: 1.4;
-        }
-
-        .preference-option.unsubscribe {
-            margin-top: 15px;
-            padding-top: 15px;
-            border-top: 1px solid #eee;
-        }
-
-        .preference-option.unsubscribe label {
-            font-weight: 600;
-        }
-
-        /* Email Input */
-        .email-input {
-            background: #e8e8e8;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 25px;
-            width: 100%;
-            max-width: 350px;
-            margin: 0 auto 15px;
-            display: block;
-            font-size: 1rem;
-            text-align: center;
-        }
-
-        /* Update Button */
-        .update-btn {
-            background: #1a3a3a;
-            color: #fff;
-            border: none;
-            padding: 15px 40px;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .update-btn:hover {
-            background: #2a4a4a;
-        }
-
-        /* Trust Section */
-        .trust-section {
-            background: #1a3a3a;
-            color: #fff;
-            padding: 60px 40px;
-            margin-top: 40px;
-            text-align: center;
-        }
-
-        .trust-section h2 {
-            font-size: 2rem;
-            font-weight: 400;
-            font-style: italic;
-            margin-bottom: 20px;
-        }
-
-        .trust-section > p {
-            max-width: 500px;
-            margin: 0 auto 40px;
-            opacity: 0.9;
-        }
-
-        .trust-cards {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-        }
-
-        .trust-card {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-            max-width: 280px;
-            text-align: left;
-        }
-
-        .trust-card img {
-            height: 40px;
-            margin-bottom: 20px;
-            filter: brightness(0) invert(1);
-        }
-
-        .trust-card p {
-            opacity: 0.9;
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        footer {
-            background: #f5f5f5;
-            padding: 40px;
-        }
-
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section h4 {
-            color: #1a3a3a;
-            margin-bottom: 15px;
-            font-size: 1rem;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: #666;
-            font-size: 0.9rem;
-            text-decoration: none;
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        .footer-section a:hover {
-            color: #1a3a3a;
-        }
-
-        .footer-bottom {
-            color: #999;
-            font-size: 0.8rem;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Truestory | Email Preferences</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'heading': ['Fraunces', 'serif'],
+            'body': ['DM Sans', 'sans-serif']
+          },
+          colors: {
+            'brand': {
+              50: '#f4f7f6',
+              100: '#e8efed',
+              200: '#d1dfdb',
+              300: '#a8c4bd',
+              400: '#7aa599',
+              500: '#588778',
+              600: '#456d61',
+              700: '#3a5950',
+              800: '#324a43',
+              900: '#2c3f3a',
+              950: '#1a2623'
+            },
+            'surface': {
+              light: '#f8f9fa',
+              card: '#ffffff',
+              muted: '#f1f3f2'
             }
-
-            .preferences-header {
-                flex-direction: column;
-                gap: 20px;
-            }
-
-            .trust-cards {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .footer-content {
-                flex-direction: column;
-            }
+          }
         }
-    </style>
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; }
+    .font-heading { font-family: 'Fraunces', serif; }
+  </style>
 </head>
-<body>
-    <header>
-        <div class="logo">
-            <img src="assets/Trustory logo.png" alt="Truestory">
-            Truestory
+<body class="bg-surface-light text-brand-900" x-data="{ formData: { email: 'test@test.com', preferences: [] } }">
+  
+  <!-- Header -->
+  <header class="px-6 py-5 flex items-center justify-between max-w-6xl mx-auto">
+    <div class="flex items-center gap-2">
+      <img src="assets/Trustory logo.png" alt="Truestory" class="h-8 w-auto">
+    </div>
+    <a href="#" class="inline-flex items-center gap-1 bg-brand-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-brand-800 transition-colors">
+      Visit main website <span aria-hidden="true">›</span>
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="px-6 py-12 max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-center gap-8 md:gap-16">
+      <div class="md:w-1/2 space-y-4">
+        <h1 class="font-heading text-4xl md:text-5xl font-semibold leading-tight text-brand-950">
+          Your data, your choices
+        </h1>
+        <p class="text-brand-700 leading-relaxed max-w-md">
+          Privacy begins with giving you control over your data, along with the tools and information you need to make informed choices you can feel confident about.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <img 
+          src="assets/header.jpg" 
+          alt="Person working on laptop" 
+          class="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Preference Form Section -->
+  <section class="px-6 py-12 max-w-6xl mx-auto">
+    <div class="bg-white rounded-3xl shadow-sm border border-brand-100 p-8 md:p-12">
+      
+      <!-- Form Header -->
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-10">
+        <h2 class="font-heading text-3xl md:text-4xl font-semibold text-brand-950 leading-tight max-w-sm">
+          Customize the emails you receive from us
+        </h2>
+        <p class="text-brand-600 text-sm leading-relaxed max-w-sm md:text-right">
+          If you're a customer you may still receive transactional emails, such as order notifications, which are required for legal and regulatory requirements.
+        </p>
+      </div>
+
+      <!-- Preference Options -->
+      <div class="bg-surface-light rounded-2xl p-6 md:p-8 mb-8">
+        <h3 class="font-medium text-lg text-brand-900 mb-6">Marketing purpose</h3>
+        
+        <div class="space-y-4">
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input 
+              type="checkbox" 
+              value="new-products" 
+              x-model="formData.preferences"
+              class="w-5 h-5 rounded-full border-2 border-brand-300 text-brand-600 focus:ring-brand-500 focus:ring-offset-0 cursor-pointer"
+            >
+            <span class="text-brand-800 group-hover:text-brand-950 transition-colors">New products & services</span>
+          </label>
+          
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input 
+              type="checkbox" 
+              value="events" 
+              x-model="formData.preferences"
+              class="w-5 h-5 rounded-full border-2 border-brand-300 text-brand-600 focus:ring-brand-500 focus:ring-offset-0 cursor-pointer"
+            >
+            <span class="text-brand-800 group-hover:text-brand-950 transition-colors">Events & webinars</span>
+          </label>
+          
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input 
+              type="checkbox" 
+              value="offers" 
+              x-model="formData.preferences"
+              class="w-5 h-5 rounded-full border-2 border-brand-300 text-brand-600 focus:ring-brand-500 focus:ring-offset-0 cursor-pointer"
+            >
+            <span class="text-brand-800 group-hover:text-brand-950 transition-colors">Special offers & promotions</span>
+          </label>
+          
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input 
+              type="checkbox" 
+              value="unsubscribe-all" 
+              x-model="formData.preferences"
+              class="w-5 h-5 rounded-full border-2 border-brand-300 text-brand-600 focus:ring-brand-500 focus:ring-offset-0 cursor-pointer"
+            >
+            <span class="text-brand-800 font-medium group-hover:text-brand-950 transition-colors">Unsubscribe from all</span>
+          </label>
         </div>
-        <a href="#" class="visit-btn">Visit main website ></a>
-    </header>
+      </div>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Your data, your choices</h1>
-            <p>Privacy begins with giving you control over your data, along with the tools and information you need to make informed choices you can feel confident about.</p>
-        </div>
-        <div class="hero-image">
-            <img src="assets/header.jpg" alt="Person using laptop">
-        </div>
-    </section>
+      <!-- Email & Submit -->
+      <div class="flex flex-col items-center gap-4 max-w-md mx-auto">
+        <input 
+          type="email" 
+          x-model="formData.email"
+          placeholder="your@email.com"
+          class="w-full px-6 py-4 bg-surface-muted rounded-full text-center text-brand-900 placeholder:text-brand-400 border-0 focus:ring-2 focus:ring-brand-500 focus:ring-offset-2 transition-shadow"
+          readonly
+        >
+        <button 
+          type="button"
+          class="w-full bg-brand-900 text-white px-8 py-4 rounded-full font-medium hover:bg-brand-800 active:scale-[0.98] transition-all"
+        >
+          Update preferences <span aria-hidden="true">›</span>
+        </button>
+      </div>
+    </div>
+  </section>
 
-    <section class="preferences-section">
-        <div class="preferences-header">
-            <h2>Customize the emails you receive from us</h2>
-            <p>If you're a customer you may still receive transactional emails, such as order notifications, which are required for legal and regulatory requirements.</p>
-        </div>
+  <!-- Trust Section -->
+  <section class="bg-brand-900 mt-16">
+    <div class="px-6 py-16 max-w-6xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-3xl md:text-4xl font-semibold text-white mb-4">
+          Earning your trust is our priority
+        </h2>
+        <p class="text-brand-300 max-w-xl mx-auto leading-relaxed">
+          Privacy. Security. Availability. Ethics. Whatever aspect you need to understand about our platform, you can find all the latest information here.
+        </p>
+      </div>
 
-        <div class="marketing-purpose">
-            <h3>Marketing purpose</h3>
-
-            <div class="preference-option">
-                <input type="checkbox" id="products" name="products">
-                <div class="preference-content">
-                    <label for="products">New Products & Services</label>
-                    <p class="description">Be the first to know about our latest features and product launches.</p>
-                </div>
-            </div>
-
-            <div class="preference-option">
-                <input type="checkbox" id="events" name="events">
-                <div class="preference-content">
-                    <label for="events">Events & Webinars</label>
-                    <p class="description">Invitations to community meetups, tech talks, and online workshops.</p>
-                </div>
-            </div>
-
-            <div class="preference-option">
-                <input type="checkbox" id="offers" name="offers">
-                <div class="preference-content">
-                    <label for="offers">Special Offers</label>
-                    <p class="description">Exclusive discounts and promotions for our loyal community.</p>
-                </div>
-            </div>
-
-            <div class="preference-option unsubscribe">
-                <input type="checkbox" id="unsubscribe" name="unsubscribe">
-                <div class="preference-content">
-                    <label for="unsubscribe">Unsubscribe from all</label>
-                </div>
-            </div>
+      <!-- Trust Cards -->
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        
+        <div class="bg-brand-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <img src="assets/lock.icloud.png" alt="" class="w-10 h-10 mb-4 opacity-90">
+          <p class="text-brand-100 text-sm leading-relaxed">
+            Security is embedded throughout our business – from employee training and third-party onboarding to our products and services.
+          </p>
         </div>
 
-        <input type="email" class="email-input" value="test@test.com" placeholder="Enter your email">
-        <button class="update-btn">Update preferences ></button>
-    </section>
-
-    <section class="trust-section">
-        <h2>Earning your trust is our priority</h2>
-        <p>Privacy. Security. Availability. Ethics. Whatever aspect you need to understand about our platform, you can find all the latest information here.</p>
-
-        <div class="trust-cards">
-            <div class="trust-card">
-                <img src="assets/lock.icloud.png" alt="Security">
-                <p>Security is embedded throughout our business – from employee training and third-party onboarding to our products and services.</p>
-            </div>
-            <div class="trust-card">
-                <img src="assets/person.3.png" alt="Ethics">
-                <p>We understand our collective responsibility to ensure our company and our actions are ethical, legal and promote our values.</p>
-            </div>
-            <div class="trust-card">
-                <img src="assets/checkmark.shield.png" alt="Compliance">
-                <p>The security of our infrastructure and data must be demonstrated consistently to maintain customer trust and regulatory compliance.</p>
-            </div>
+        <div class="bg-brand-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <img src="assets/person.3.png" alt="" class="w-10 h-10 mb-4 opacity-90">
+          <p class="text-brand-100 text-sm leading-relaxed">
+            We understand our collective responsibility to ensure our company and our actions are ethical, legal and promote our values.
+          </p>
         </div>
-    </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>Truestory</h4>
-                <p>Truestory are specialists in data privacy.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Documents</h4>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Cookie Policy</a>
-                <a href="#">Website Terms & Conditions</a>
-            </div>
-            <div class="footer-section">
-                <h4>Contacts</h4>
-                <a href="#">Send us a message</a>
-                <a href="#">Give feedback</a>
-            </div>
+        <div class="bg-brand-800/50 rounded-2xl p-6 backdrop-blur-sm">
+          <img src="assets/checkmark.shield.png" alt="" class="w-10 h-10 mb-4 opacity-90">
+          <p class="text-brand-100 text-sm leading-relaxed">
+            The security of our infrastructure and data must be demonstrated consistently to maintain customer trust and regulatory compliance.
+          </p>
         </div>
-        <div class="footer-bottom">
-            &copy; Truestory 2025, All rights reserved. Registered office: 165 Broadway, New York City, NY 10006.
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface-light border-t border-brand-100">
+    <div class="px-6 py-12 max-w-6xl mx-auto">
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-10">
+        
+        <div>
+          <h4 class="font-semibold text-brand-900 mb-3">Truestory</h4>
+          <p class="text-brand-600 text-sm">Truestory are specialists in data privacy.</p>
         </div>
-    </footer>
 
-    <script>
-        // Handle unsubscribe from all checkbox
-        const unsubscribeCheckbox = document.getElementById('unsubscribe');
-        const preferenceCheckboxes = document.querySelectorAll('input[type="checkbox"]:not(#unsubscribe)');
+        <div>
+          <h4 class="font-semibold text-brand-900 mb-3">Documents</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-brand-600 hover:text-brand-900 transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="text-brand-600 hover:text-brand-900 transition-colors">Cookie Policy</a></li>
+            <li><a href="#" class="text-brand-600 hover:text-brand-900 transition-colors">Website Terms & Conditions</a></li>
+          </ul>
+        </div>
 
-        unsubscribeCheckbox.addEventListener('change', function() {
-            if (this.checked) {
-                preferenceCheckboxes.forEach(cb => cb.checked = false);
-            }
-        });
+        <div>
+          <h4 class="font-semibold text-brand-900 mb-3">Contacts</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-brand-600 hover:text-brand-900 transition-colors">Send us a message</a></li>
+            <li><a href="#" class="text-brand-600 hover:text-brand-900 transition-colors">Give feedback</a></li>
+          </ul>
+        </div>
 
-        preferenceCheckboxes.forEach(cb => {
-            cb.addEventListener('change', function() {
-                if (this.checked) {
-                    unsubscribeCheckbox.checked = false;
-                }
-            });
-        });
-    </script>
+      </div>
+
+      <div class="pt-6 border-t border-brand-100">
+        <p class="text-brand-500 text-xs">
+          © Truestory 2025, All rights reserved. Registered office: 165 Broadway, New York City, NY 10006.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    // Page load animations
+    gsap.from('header', { 
+      opacity: 0, 
+      y: -20, 
+      duration: 0.6, 
+      ease: 'power2.out' 
+    });
+    
+    gsap.from('section:first-of-type > div > *', { 
+      opacity: 0, 
+      y: 30, 
+      duration: 0.8, 
+      stagger: 0.15, 
+      ease: 'power2.out',
+      delay: 0.2
+    });
+    
+    gsap.from('section:nth-of-type(2) > div', { 
+      opacity: 0, 
+      y: 40, 
+      duration: 0.8, 
+      ease: 'power2.out',
+      delay: 0.4
+    });
+  </script>
+
 </body>
 </html>
