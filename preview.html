@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Truestory | Preference Center</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Fraunces:opsz,wght@9..144,400;9..144,600&display=swap" rel="stylesheet">
+  
+  <link rel="icon" type="image/png" href="assets/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <link rel="shortcut icon" href="assets/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="Truestory" />
+  <link rel="manifest" href="assets/site.webmanifest" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            'heading': ['Fraunces', 'serif'],
+            'body': ['DM Sans', 'sans-serif']
+          },
+          colors: {
+            'brand': {
+              300: '#a8c4bd',
+              600: '#456d61',
+              900: '#2c3f3a'
+            },
+            'surface': {
+              light: '#f8f9fa',
+              card: '#ffffff',
+              muted: '#f1f3f2'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    html { scroll-behavior: smooth; }
+    body { font-family: 'DM Sans', sans-serif; }
+    .font-heading { font-family: 'Fraunces', serif; }
+  </style>
+</head>
+<body class="bg-surface-light text-brand-900" x-data="{ formData: { email: 'test@test.com', preferences: [] } }">
+  
+  <!-- Header -->
+  <header class="px-6 py-5 flex items-center justify-between max-w-6xl mx-auto">
+    <div class="flex items-center gap-2">
+      <img src="assets/logo.png" alt="Truestory" class="h-8 w-auto">
+      <span class="font-heading text-2xl font-semibold text-brand-900">Truestory</span>
+    </div>
+    <a href="#" class="inline-flex items-center gap-1 bg-brand-900 text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-brand-600 transition-colors">
+      Visit main website <span aria-hidden="true">›</span>
+    </a>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="px-6 py-12 max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row md:items-center gap-8 md:gap-16">
+      <div class="md:w-1/2 space-y-4">
+        <h1 class="font-heading text-4xl md:text-5xl font-semibold leading-tight text-brand-900">
+          Your data, your choices
+        </h1>
+        <p class="text-brand-600 leading-relaxed max-w-md">
+          Privacy begins with giving you control over your data, along with the tools and information you need to make informed choices you can feel confident about.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <img 
+          src="assets/header.jpg" 
+          alt="Person working on laptop" 
+          class="w-full h-64 md:h-80 object-cover rounded-2xl shadow-lg"
+        >
+      </div>
+    </div>
+  </section>
+
+  <!-- Preference Form Section -->
+  <section id="preferences" class="px-6 py-12 max-w-6xl mx-auto">
+    <div class="bg-white rounded-3xl shadow-sm border border-brand-300 p-8 md:p-12">
+      
+      <!-- Form Header -->
+      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-6 mb-10">
+        <h2 class="font-heading text-3xl md:text-4xl font-semibold text-brand-900 leading-tight max-w-sm">
+          Customize the emails you receive from us
+        </h2>
+        <p class="text-brand-600 text-sm leading-relaxed max-w-sm md:text-right">
+          If you're a customer you may still receive transactional emails, such as order notifications, which are required for legal and regulatory requirements.
+        </p>
+      </div>
+
+      <!-- Preference Form -->
+      <form id="preference-form" @submit.prevent>
+        <div class="bg-surface-light rounded-2xl p-6 md:p-8 mb-8">
+          <h3 class="font-medium text-lg text-brand-900 mb-6">Marketing purpose</h3>
+
+          <div class="space-y-5">
+          <div class="group">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                value="new-products"
+                x-model="formData.preferences"
+                class="w-5 h-5 mt-0.5 rounded-full border-2 border-brand-300 text-brand-600 focus:ring-brand-600 focus:ring-offset-0 cursor-pointer"
+              >
+              <div>
+                <span class="text-brand-900 group-hover:text-brand-600 transition-colors font-medium">New products & services</span>
+                <p class="text-brand-600 text-sm mt-1">The latest product launches & feature updates.</p>
+              </div>
+            </label>
+          </div>
+
+          <div class="group">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                value="events"
+                x-model="formData.preferences"
+                class="w-5 h-5 mt-0.5 rounded-full border-2 border-brand-300 text-brand-600 focus:ring-brand-600 focus:ring-offset-0 cursor-pointer"
+              >
+              <div>
+                <span class="text-brand-900 group-hover:text-brand-600 transition-colors font-medium">Events & webinars</span>
+                <p class="text-brand-600 text-sm mt-1">Exclusive webinars, workshops, and industry events.</p>
+              </div>
+            </label>
+          </div>
+
+          <div class="group">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input
+                type="checkbox"
+                value="offers"
+                x-model="formData.preferences"
+                class="w-5 h-5 mt-0.5 rounded-full border-2 border-brand-300 text-brand-600 focus:ring-brand-600 focus:ring-offset-0 cursor-pointer"
+              >
+              <div>
+                <span class="text-brand-900 group-hover:text-brand-600 transition-colors font-medium">Special offers & promotions</span>
+                <p class="text-brand-600 text-sm mt-1">Receive exclusive discounts, early-bird pricing, and limited-time promotions.</p>
+              </div>
+            </label>
+          </div>
+          
+          <label class="flex items-center gap-3 cursor-pointer group">
+            <input 
+              type="checkbox" 
+              value="unsubscribe-all" 
+              x-model="formData.preferences"
+              class="w-5 h-5 rounded-full border-2 border-brand-300 text-brand-600 focus:ring-brand-600 focus:ring-offset-0 cursor-pointer"
+            >
+            <span class="text-brand-900 font-medium group-hover:text-brand-600 transition-colors">Unsubscribe from all</span>
+          </label>
+          </div>
+        </div>
+
+        <!-- Email & Submit -->
+        <div class="flex flex-col items-center gap-4 max-w-md mx-auto">
+        <input 
+          type="email" 
+          x-model="formData.email"
+          placeholder="your@email.com"
+          class="w-full px-6 py-4 bg-surface-muted rounded-full text-center text-brand-900 placeholder:text-brand-300 border-0 focus:ring-2 focus:ring-brand-600 focus:ring-offset-2 transition-shadow"
+          readonly
+        >
+        <button 
+          type="button"
+          class="w-full bg-brand-900 text-white px-8 py-4 rounded-full font-medium hover:bg-brand-600 active:scale-[0.98] transition-all"
+        >
+          Update preferences <span aria-hidden="true">›</span>
+        </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Trust Section -->
+  <section id="trust" class="bg-brand-900 mt-16">
+    <div class="px-6 py-16 max-w-6xl mx-auto">
+      
+      <!-- Section Header -->
+      <div class="text-center mb-12">
+        <h2 class="font-heading text-3xl md:text-4xl font-semibold text-white mb-4">
+          Earning your trust is our priority
+        </h2>
+        <p class="text-brand-300 max-w-xl mx-auto leading-relaxed opacity-80">
+          Trust is built on transparency. From how we protect your data to how we conduct our business,
+          everything you need to know about our commitments is available here.
+        </p>
+      </div>
+
+      <!-- Trust Cards -->
+      <div class="grid md:grid-cols-3 gap-6 mt-12">
+        
+        <div class="bg-brand-600/30 rounded-2xl p-6 backdrop-blur-sm">
+          <img src="assets/lock.icloud.png" alt="Security icon" class="w-15 h-10 mb-4 opacity-90">
+          <p class="text-brand-300 text-sm leading-relaxed">
+            Our commitment to protection spans every layer of operations – including how we train
+            our teams, vet our partners, and build what we deliver.
+          </p>
+        </div>
+
+        <div class="bg-brand-600/30 rounded-2xl p-6 backdrop-blur-sm">
+          <img src="assets/person.3.png" alt="Ethics icon" class="w-15 h-10 mb-4 opacity-90">
+          <p class="text-brand-300 text-sm leading-relaxed">
+            We recognize that acting with integrity isn't optional. Every decision we make must align
+            with our principles and meet the highest ethical and legal standards.
+          </p>
+        </div>
+
+        <div class="bg-brand-600/30 rounded-2xl p-6 backdrop-blur-sm">
+          <img src="assets/checkmark.shield.png" alt="Compliance icon" class="w-8 h-10 mb-4 opacity-90">
+          <p class="text-brand-300 text-sm leading-relaxed">
+            Maintaining trust means proving it. We continuously validate our systems and data practices
+            to satisfy both customer expectations and regulatory demands.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-surface-light border-t border-brand-300">
+    <div class="px-6 py-12 max-w-6xl mx-auto">
+      
+      <div class="grid md:grid-cols-3 gap-8 mb-10">
+        
+        <div>
+          <h4 class="font-semibold text-brand-900 mb-3">Truestory</h4>
+          <p class="text-brand-600 text-sm">Truestory are specialists in data privacy.</p>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-brand-900 mb-3">Documents</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-brand-600 hover:text-brand-900 transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="text-brand-600 hover:text-brand-900 transition-colors">Cookie Policy</a></li>
+            <li><a href="#" class="text-brand-600 hover:text-brand-900 transition-colors">Website Terms & Conditions</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold text-brand-900 mb-3">Contacts</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#" class="text-brand-600 hover:text-brand-900 transition-colors">Send us a message</a></li>
+            <li><a href="#" class="text-brand-600 hover:text-brand-900 transition-colors">Give feedback</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="pt-6 border-t border-brand-300">
+        <p class="text-brand-600 text-xs">
+          © Truestory 2025, All rights reserved. Registered office: 165 Broadway, New York City, NY 10006.
+        </p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script>
+    // Page load animations
+    gsap.from('header', { 
+      opacity: 0, 
+      y: -20, 
+      duration: 0.6, 
+      ease: 'power2.out' 
+    });
+    
+    gsap.from('section:first-of-type > div > *', { 
+      opacity: 0, 
+      y: 30, 
+      duration: 0.8, 
+      stagger: 0.15, 
+      ease: 'power2.out',
+      delay: 0.2
+    });
+    
+    gsap.from('section:nth-of-type(2) > div', { 
+      opacity: 0, 
+      y: 40, 
+      duration: 0.8, 
+      ease: 'power2.out',
+      delay: 0.4
+    });
+  </script>
+
+</body>
+</html>
